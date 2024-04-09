@@ -32,7 +32,25 @@ function init(){
   google.maps.event.addListener(marker, 'mouseover', function() {
     infowindow.open(myMap, marker);
   });
-  
+
+  if (navigator.geolocation) { //obtains user location by asking them
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var userLocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      var polyline = new google.maps.Polyline({ //adds line between user location and united center location
+        path: [userLocation, myLocation],
+        geodesic: true,
+        strokeColor: '#0000FF',
+        strokeOpacity: 1.0,
+        strokeWeight: 2
+      });
+
+      polyline.setMap(myMap);
+    });
+  }
 }
 
 google.maps.event.addDomListener(window, 'load', init);
