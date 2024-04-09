@@ -193,3 +193,27 @@ body {
   
   /* Importing Font */
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+  /* Media Queries */
+  @media (min-width: 320px) {  /* for phones */
+    .player-container {
+      width: 90%;
+      margin: 0 auto;
+    }
+  
+    h1 {
+      font-size: 2em;
+    }
+  
+    iframe {
+      height: 20rem;
+    }
+  
+    ul {
+      padding-left: 1.25rem;
+    }
+  
+    section {
+      padding: 1rem;
+    }
+  }
