@@ -1,0 +1,195 @@
+/* styles.css */
+
+/* General Styles */
+body {
+    font-family: 'Roboto' ,'Arial';
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header Styles */
+  header {
+    background-color: #dc3545;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 1.5rem;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  h5 {
+    font-style: italic;
+    font-weight: normal;
+  }
+
+  body{
+    background-color: black;
+    color: white;
+  }
+  
+  /* Main Content Styles */
+  main {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 1.25rem;
+  }
+  
+  /* Navigation Section Styles */
+  nav {
+    text-align: center;
+  }
+  
+  /* Page-Specific Styles */
+  
+  /* Index Page */
+  h1 {
+    color: #007bff;
+  }
+  
+  p {
+    font-size: 1.2em;
+    line-height: 1.4;
+    color: #a09d9d;
+  }
+  
+  a {
+    color: #007bff;
+  }
+  
+  /* Resume Page */
+  ul {
+    margin-top: 0.625rem;
+    color: white
+  }
+  
+  li {
+    color: #a09d9d;
+  }
+
+  #profile-picture{
+    width: 50%; 
+    height: auto; 
+    border-radius: 10%; 
+    border: 0.125rem solid #a09d9d; 
+    display: block; 
+    margin: 0 auto; 
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); 
+    align-items: center;
+  }
+
+  #Experience {
+    background-color: #f8f9fa;
+    padding: 0.9375rem;
+    border-radius: 5px;
+  }
+  
+  /* Basketball Page */
+  h1 {
+    color: #dc3545;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 0.125rem solid #dc3545;
+    padding-bottom: 0.625rem;
+  }
+
+  section {
+    margin-bottom: 1.25rem;
+  }
+
+  #Work,
+  #WatchSports {
+  float: left; 
+  width: 70%;
+  }
+
+  .contact-info {
+    float: left;
+    width: 100%; 
+    text-align: center;
+  }
+
+  .contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .contact-info ul li {
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem; 
+  }
+  
+  .intro-container {
+    float: right;
+    width: 100%;
+    text-align: center;
+  }
+
+  .player-container {
+    float: none; 
+    margin: 0 auto; 
+    text-align: center; 
+  }
+
+  .player-container h2 {
+    text-decoration: underline;
+  }
+
+  .center-heading {
+    text-align: center;
+  }
+
+  ul {
+    list-style: square;
+    color: #555;
+  }
+  
+  h2 {
+    color: #dc3545;
+  }
+  
+  iframe {
+    width: 100%;
+    height: 25rem;
+  }
+  
+  /* Additional Styles for Basketball Page */
+  section {
+    margin-bottom: 1.25rem;
+  }
+  
+  /* Fluid Layout */
+  @media (min-width: 769px) {
+    main {
+      max-width: 100%;
+      padding: 0.625rem;
+    }
+  }
+  
+  /* Fixed Width Layout */
+  @media (min-width: 1200px) {
+    main {
+      max-width: 50rem;
+    }
+  }
+  
+  /* Importing Font */
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
