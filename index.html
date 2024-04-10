@@ -6,9 +6,22 @@
     <title>Project 1</title>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="dynamic_elements.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="js/jquery.box_slider.js"></script>
+    <link href="css/jquery.bxslider.css" rel="stylesheet" />
+
+    <style type="text/css">
+      .slideshow {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .slideshow ul {
+        margin:0;
+      }
+    </style>
   </head>
 
+  
   <body>
     <header>
       <nav>
@@ -31,18 +44,60 @@
 
       <section id="Work">
         <h3>Work as Information Technology Analyst Intern @ CannonDesign</h3>
-        <img src="images/office1.jpg" alt="CannonDesign Office Entrance with Red Walls">
+        <div class="slideshow1">
+          <ul class="bxslider">
+            <li><img src="images/office1.jpg" /></li>
+            <li><img src="images/office2.jpg" /></li>
+            <li><img src="images/office3.jpg" /></li>
+            <li><img src="images/office4.jpg" /></li>
+          </ul>
+        </div>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('.bxslider').bxSlider({
+              mode: 'fade'
+            });
+          });
+        </script>
         <p>CannonDesign is an Architecture Firm that utilizes engineering, construction, strategy, innovation, and more to make a big impact on the society around them. </p>
       </section>
 
       <section id="WatchSports">
         <h3>Watch Sports: Basketball & Football</h3>
         <h4>Chicago Bulls!</h4>
-        <img src="images/bulls1.jpg" alt="Alex Caruso and Demar Derozan (Chicago Bulls Players) giving each other high-five with Coby White (Chicago Bulls Player) in background">
+        <div class="slideshow2">
+          <ul class="bxslider">
+            <li><img src="images/bulls1.jpg" /></li>
+            <li><img src="images/bulls2.jpg" /></li>
+            <li><img src="images/bulls3.jpg" /></li>
+            <li><img src="images/bulls4.jpg" /></li>
+          </ul>
+        </div>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('.bxslider').bxSlider({
+              mode: 'fade'
+            });
+          });
+        </script>
         <p>My favorite basketball team to watch is the Chicago Bulls! Hopefully, they will make a deep run in the playoffs this year.</p>
         <h5> I think you will be able to guess my favorite football team!</h5>
         <h4>Chicago Bears!</h4>
-        <img src="images/bears1.jpg" alt="Justin Fields wearing Bears uniform with snow falling">
+        <div class="slideshow3">
+          <ul class="bxslider">
+            <li><img src="images/bears1.jpg" /></li>
+            <li><img src="images/bears2.jpg" /></li>
+            <li><img src="images/bears3.jpg" /></li>
+            <li><img src="images/bears4.jpg" /></li>
+          </ul>
+        </div>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('.bxslider').bxSlider({
+              mode: 'fade'
+            });
+          });
+        </script>
         <p>My favorite football team to watch is the Chicago Bears! They have a big decision to make in the next few months, keep Justin Fields (image above) or draft Caleb Williams as their new Quarterback.</p>
       </section>
     </main>
