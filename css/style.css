@@ -175,6 +175,24 @@ body {
   section {
     margin-bottom: 1.25rem;
   }
+
+  /* Hide quotes by default */
+  .quotes {
+    display: none;
+  }
+
+  /* Show quotes when it has the 'show' class */
+  .quotes.show {
+    display: block;
+    transition: display 0.3s ease-in-out;
+  }
+
+  /* Style the down arrow icon */
+  .arrow {
+    cursor: pointer;
+    text-decoration: none;
+    color: #555;
+  }
   
   /* Fluid Layout */
   @media (min-width: 769px) {
