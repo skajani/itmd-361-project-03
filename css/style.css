@@ -394,7 +394,7 @@ section {
 .arrow {
   cursor: pointer;
   text-decoration: none;
-  color: #555;
+  color: #dc3545;
 }
 
 /* Fluid Layout */
