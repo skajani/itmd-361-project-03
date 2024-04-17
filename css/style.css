@@ -1,283 +1,479 @@
-/* styles.css */
+/* jquery.bxslider.css */
+
+/**
+ * BxSlider v4.1.2 - Fully loaded, responsive content slider
+ * http://bxslider.com
+ *
+ * Written by: Steven Wanderski, 2014
+ * http://stevenwanderski.com
+ * (while drinking Belgian ales and listening to jazz)
+ *
+ * CEO and founder of bxCreative, LTD
+ * http://bxcreative.com
+ */
+
+/** RESET AND LAYOUT =================================== */
+
+.bx-wrapper {
+  position: relative;
+  margin: 0 auto 60px;
+  padding: 0;
+}
+
+.bx-wrapper img {
+  max-width: 100%;
+  display: block;
+}
+
+.bx-wrapper .bx-viewport img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/** THEME ============================================= */
+
+.bx-wrapper .bx-viewport {
+  -moz-box-shadow: 0 0 5px #000000;
+  -webkit-box-shadow: 0 0 5px #090909;
+  box-shadow: 0 0 5px #000000;
+  border: 5px solid #000000;
+  left: -5px;
+  background: #000000;
+
+  /* fix other elements on the page moving (on Chrome) */
+  -webkit-transform: translatez(0);
+  -moz-transform: translatez(0);
+  -ms-transform: translatez(0);
+  -o-transform: translatez(0);
+  transform: translatez(0);
+}
+
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+}
+
+/* LOADER */
+
+.bx-wrapper .bx-loading {
+  min-height: 50px;
+  background: url(images/bx_loader.gif) center center no-repeat #fff;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}
+
+/* PAGER */
+
+.bx-wrapper .bx-pager {
+  text-align: center;
+  font-size: .85em;
+  font-family: Arial;
+  font-weight: bold;
+  color: #666;
+  padding-top: 20px;
+}
+
+.bx-wrapper .bx-pager .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+  display: inline-block;
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a {
+  background: #ffffff;
+  text-indent: -9999px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  outline: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+  background: #505050;
+}
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+
+.bx-wrapper .bx-prev {
+  left: 10px;
+  background: url(images/controls.png) no-repeat 0 -32px;
+}
+
+.bx-wrapper .bx-next {
+  right: 10px;
+  background: url(images/controls.png) no-repeat -43px -32px;
+}
+
+.bx-wrapper .bx-prev:hover {
+  background-position: 0 0;
+}
+
+.bx-wrapper .bx-next:hover {
+  background-position: -43px 0;
+}
+
+.bx-wrapper .bx-controls-direction a {
+  position: absolute;
+  top: 50%;
+  margin-top: -16px;
+  outline: 0;
+  width: 32px;
+  height: 32px;
+  text-indent: -9999px;
+  z-index: 9999;
+}
+
+.bx-wrapper .bx-controls-direction a.disabled {
+  display: none;
+}
+
+/* AUTO CONTROLS (START / STOP) */
+
+.bx-wrapper .bx-controls-auto {
+  text-align: center;
+}
+
+.bx-wrapper .bx-controls-auto .bx-start {
+  display: block;
+  text-indent: -9999px;
+  width: 10px;
+  height: 11px;
+  outline: 0;
+  background: url(images/controls.png) -86px -11px no-repeat;
+  margin: 0 3px;
+}
+
+.bx-wrapper .bx-controls-auto .bx-start:hover,
+.bx-wrapper .bx-controls-auto .bx-start.active {
+  background-position: -86px 0;
+}
+
+.bx-wrapper .bx-controls-auto .bx-stop {
+  display: block;
+  text-indent: -9999px;
+  width: 9px;
+  height: 11px;
+  outline: 0;
+  background: url(images/controls.png) -86px -44px no-repeat;
+  margin: 0 3px;
+}
+
+.bx-wrapper .bx-controls-auto .bx-stop:hover,
+.bx-wrapper .bx-controls-auto .bx-stop.active {
+  background-position: -86px -33px;
+}
+
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+  text-align: left;
+  width: 80%;
+}
+
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+  right: 0;
+  width: 35px;
+}
+
+/* IMAGE CAPTIONS */
+
+.bx-wrapper .bx-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(80, 80, 80, 0.75);
+  width: 100%;
+}
+
+.bx-wrapper .bx-caption span {
+  color: #fff;
+  font-family: Arial;
+  display: block;
+  font-size: .85em;
+  padding: 10px;
+}
+
+/* style.css */
 
 /* General Styles */
 body {
-    font-family: 'Roboto' ,'Arial';
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Header Styles */
-  header {
-    background-color: #dc3545;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-  }
-  
-  nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-right: 1.5rem;
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: #fff;
-  }
+  font-family: 'Roboto', 'Arial';
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+}
 
-  h5 {
-    font-style: italic;
-    font-weight: normal;
-  }
+/* Header Styles */
+header {
+  background-color: #dc3545;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
 
-  body{
-    background-color: black;
-    color: white;
-  }
-  
-  /* Main Content Styles */
-  main {
-    max-width: 90%;
-    margin: 0 auto;
-    padding: 1.25rem;
-  }
-  
-  /* Navigation Section Styles */
-  nav {
-    text-align: center;
-  }
-  
-  /* Page-Specific Styles */
-  
-  /* Index Page */
-  h1 {
-    color: #007bff;
-  }
-  
-  p {
-    font-size: 1.2em;
-    line-height: 1.4;
-    color: #a09d9d;
-  }
-  
-  a {
-    color: #007bff;
-  }
-  
-  /* Resume Page */
-  ul {
-    margin-top: 0.625rem;
-    color: white
-  }
-  
-  li {
-    color: #a09d9d;
-  }
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-  #profile-picture{
-    width: 50%; 
-    height: auto; 
-    border-radius: 10%; 
-    border: 0.125rem solid #a09d9d; 
-    display: block; 
-    margin: 0 auto; 
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); 
-    align-items: center;
-  }
+nav ul li {
+  display: inline;
+  margin-right: 1.5rem;
+}
 
-  #Experience {
-    background-color: #f8f9fa;
-    padding: 0.9375rem;
-    border-radius: 5px;
-  }
-  
-  /* Basketball Page */
-  h1 {
-    color: #dc3545;
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 1.25rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-bottom: 0.125rem solid #dc3545;
-    padding-bottom: 0.625rem;
-  }
+nav a {
+  text-decoration: none;
+  color: #fff;
+}
 
-  section {
-    margin-bottom: 1.25rem;
-  }
+h5 {
+  font-style: italic;
+  font-weight: normal;
+}
 
-  #Work,
-  #WatchSports {
-  float: left; 
+/* Main Content Styles */
+main {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+/* Navigation Section Styles */
+nav {
+  text-align: center;
+}
+
+/* Page-Specific Styles */
+
+/* Index Page */
+h1 {
+  color: #007bff;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.4;
+  color: #a09d9d;
+}
+
+a {
+  color: #007bff;
+}
+
+/* Resume Page */
+ul {
+  margin-top: 0.625rem;
+  color: white;
+}
+
+li {
+  color: #a09d9d;
+}
+
+#profile-picture {
+  width: 50%;
+  height: auto;
+  border-radius: 10%;
+  border: 0.125rem solid #a09d9d;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+#Experience {
+  background-color: #f8f9fa;
+  padding: 0.9375rem;
+  border-radius: 5px;
+}
+
+/* Basketball Page */
+h1 {
+  color: #dc3545;
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 0.125rem solid #dc3545;
+  padding-bottom: 0.625rem;
+}
+
+section {
+  margin-bottom: 1.25rem;
+}
+
+#Work,
+#WatchSports {
+  float: left;
   width: 70%;
-  }
+}
 
-  .contact-info {
-    float: left;
-    width: 100%; 
-    text-align: center;
-  }
+.contact-info {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
 
-  .contact-info ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .contact-info ul li {
-    margin-top: 0.625rem;
-    margin-bottom: 0.625rem; 
-  }
-  
-  .intro-container {
-    float: right;
-    width: 100%;
-    text-align: center;
-  }
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-  .player-container {
-    float: none; 
-    margin: 0 auto; 
-    text-align: center; 
-  }
+.contact-info ul li {
+  margin-top: 0.625rem;
+  margin-bottom: 0.625rem;
+}
 
-  .player-container h2 {
-    text-decoration: underline;
-  }
+.intro-container {
+  float: right;
+  width: 100%;
+  text-align: center;
+}
 
-  .center-heading {
-    text-align: center;
-  }
+.player-container {
+  float: none;
+  margin: 0 auto;
+  text-align: center;
+}
 
-  ul {
-    list-style: square;
-    color: #555;
-  }
-  
-  h2 {
-    color: #dc3545;
-  }
-  
-  iframe {
-    width: 100%;
-    height: 25rem;
-  }
-  
-  /* Additional Styles for Basketball Page */
-  section {
-    margin-bottom: 1.25rem;
-  }
+.player-container h2 {
+  text-decoration: underline;
+}
 
-  /* Hide quotes by default */
-  .quotes {
-    display: none;
-  }
+.center-heading {
+  text-align: center;
+}
 
-  /* Show quotes when it has the 'show' class */
-  .quotes.show {
-    display: block;
-    transition: display 0.3s ease-in-out;
-  }
+ul {
+  list-style: square;
+  color: #555;
+}
 
-  /* Style the down arrow icon */
-  .arrow {
-    cursor: pointer;
-    text-decoration: none;
-    color: #555;
-  }
-  
-  /* Fluid Layout */
-  @media (min-width: 769px) {
-    main {
+h2 {
+  color: #dc3545;
+}
+
+iframe {
+  width: 100%;
+  height: 25rem;
+}
+
+/* Additional Styles for Basketball Page */
+section {
+  margin-bottom: 1.25rem;
+}
+
+/* Hide quotes by default */
+.quotes {
+  display: none;
+}
+
+/* Show quotes when it has the 'show' class */
+.quotes.show {
+  display: block;
+  transition: display 0.3s ease-in-out;
+}
+
+/* Style the down arrow icon */
+.arrow {
+  cursor: pointer;
+  text-decoration: none;
+  color: #555;
+}
+
+/* Fluid Layout */
+@media (min-width: 769px) {
+  main {
       max-width: 100%;
       padding: 0.625rem;
-    }
   }
-  
-  /* Fixed Width Layout */
-  @media (min-width: 1200px) {
-    main {
+}
+
+/* Fixed Width Layout */
+@media (min-width: 1200px) {
+  main {
       max-width: 50rem;
-    }
   }
-  
-  /* Importing Font */
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+}
 
-  /* Media Queries */
-  @media (min-width: 320px) {  /* for phones */
-    .player-container {
+/* Importing Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Media Queries */
+@media (min-width: 320px) { /* for phones */
+  .player-container {
       width: 90%;
       margin: 0 auto;
-    }
-  
-    h1 {
-      font-size: 2em;
-    }
-  
-    iframe {
-      height: 20rem;
-    }
-  
-    ul {
-      padding-left: 1.25rem;
-    }
-  
-    section {
-      padding: 1rem;
-    }
   }
 
-  /* Media Queries */
-  @media (min-width: 320px) {  /* for phones */
-    .player-container {
-      width: 90%;
-      margin: 0 auto;
-    }
-  
-    h1 {
+  h1 {
       font-size: 2em;
-    }
-  
-    iframe {
-      height: 20rem;
-    }
-  
-    ul {
-      padding-left: 1.25rem;
-    }
-  
-    section {
-      padding: 1rem;
-    }
   }
-  
-  @media (min-width: 769px) { /* for tablets */
-    .player-container {
+
+  iframe {
+      height: 20rem;
+  }
+
+  ul {
+      padding-left: 1.25rem;
+  }
+
+  section {
+      padding: 1rem;
+  }
+}
+
+@media (min-width: 769px) { /* for tablets */
+  .player-container {
       width: 80%;
-    }
-  
-    h1 {
-      font-size: 2.25em;
-    }
-  
-    iframe {
-      height: 22rem;
-    }
-  
-    ul {
-      padding-left: 1.5rem;
-    }
-  
-    section {
-      padding: 1.5rem;
-    }
   }
+
+  h1 {
+      font-size: 2.25em;
+  }
+
+  iframe {
+      height: 22rem;
+  }
+
+  ul {
+      padding-left: 1.5rem;
+  }
+
+  section {
+      padding: 1.5rem;
+  }
+}
+
+/* ucstyle.css */
+
+#wrapper {
+  width: 850px;
+  height: 600px;
+  background-color: #fdfdfd90;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#canvas {
+  width: 700px;
+  height: 500px;
+  background-color: #ccc;
+  margin: 30px auto;
+}
